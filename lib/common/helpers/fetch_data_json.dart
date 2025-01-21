@@ -7,7 +7,7 @@ Future<Map<String, dynamic>> fetchDataFromUrl(String urlString) async {
   try {
     final response = await http.get(url);
 
-    if (response.statusCode == 200) {
+    if (response.statusCode >= 200 && response.statusCode <= 299) {
       final decodedData = jsonDecode(response.body);
       return decodedData;
     } else {
